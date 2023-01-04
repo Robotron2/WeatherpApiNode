@@ -1,0 +1,15 @@
+{
+  "name": "weatherappproject",
+  "version": "1.0.0",
+  "description": "Weather app project to understand how to use node to make HTTPS request.",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Theophilus",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.20.1",
+    "express": "^4.18.2"
+  }
+}
