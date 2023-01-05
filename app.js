@@ -11,6 +11,10 @@ app.get("/", function (req, res) {
 	const url = `https://api.openweathermap.org/data/2.5/weather?q=lagos&appid=${process.env.API_KEY}&units=metric`
 	https.get(url, (response) => {
 		console.log(response.statusCode)
+		response.on("data", (data) => {
+			const weatherData = JSON.parse(data)
+			console.log(weatherData)
+		})
 	})
 
 	res.sendFile(`${__dirname}/index.html`)
