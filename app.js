@@ -13,11 +13,15 @@ app.get("/", function (req, res) {
 		console.log(response.statusCode)
 		response.on("data", (data) => {
 			const weatherData = JSON.parse(data)
-			console.log(weatherData)
+			const icon = weatherData.weather[0].icon
+			const imageURL = `https://openweathermap.org/img/wn/${icon}@2x.png`
+
+			res.write(`<h1> The current weather description is ${weatherData.weather[0].description} </h1>`)
+			res.write(`<h1>The temperature in Lagos is ${weatherData.main.temp} degree celsius</h1>`)
+			res.write("<img src=" + imageURL + ">")
+			res.send()
 		})
 	})
-
-	res.sendFile(`${__dirname}/index.html`)
 })
 
 app.listen(3000, () => {
